@@ -20,7 +20,9 @@ jobs:
         cache: maven
         
     - name: Build with Maven
-      run: mvn clean install
+      run: |
+        cd realstate
+        mvn clean install
 
     - name: Sonar Analysis
       run: |
@@ -32,6 +34,7 @@ jobs:
 
     - name: Docker build of the realstate app
       run: |
+        cd realstate
         docker build -t 78160/realstate-docker:1.0.0 .
         docker login -u 78160 -p ${{ secrets.DOCKER_PASS }}
         docker push 78160/realstate-docker:1.0.0
