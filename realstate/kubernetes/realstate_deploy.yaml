@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: realstate
+  namespace: realstate
+spec:
+  selector:
+    matchLabels:
+      app: realstate
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: realstate
+    spec:
+      containers:
+      - name: realstate
+        image: mkumarda/test:1.0.0
+        ports:
+        - containerPort: 9090
