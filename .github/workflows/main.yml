@@ -26,6 +26,7 @@ jobs:
 
     - name: Sonar Analysis
       run: |
+         cd realstate
          mvn clean verify sonar:sonar \
          -Dsonar.projectKey=realstate \
          -Dsonar.projectName='realstate' \
