@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3 
     
@@ -36,10 +36,10 @@ jobs:
         docker login -u 78160 -p ${{ secrets.DOCKER_PASS }}
         docker push 78160/realstate-docker:1.0.0
 
-    - name: Connect to Kubernetes Cluster and deploy the application
-      run: |
-         cd kubernetes
-         export KUBECONFIG=admin.conf
-         kubectl apply -f realstate_deploy.yaml 
-         kubectl expose deployment realstate --port 9090 --type NodePort -n realstate
+    # - name: Connect to Kubernetes Cluster and deploy the application
+    #   run: |
+    #      cd kubernetes
+    #      export KUBECONFIG=admin.conf
+    #      kubectl apply -f realstate_deploy.yaml 
+    #      kubectl expose deployment realstate --port 9090 --type NodePort -n realstate
   
