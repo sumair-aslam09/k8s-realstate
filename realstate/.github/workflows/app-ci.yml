@@ -32,9 +32,9 @@ jobs:
 
     - name: Docker build of the realstate app
       run: |
-        docker build -t mkumarda/test:1.0.0 .
-        docker login -u mkumarda -p ${{ secrets.DOCKER_PASS }}
-        docker push mkumarda/test:1.0.0
+        docker build -t 78160/realstate-docker:1.0.0 .
+        docker login -u 78160 -p ${{ secrets.DOCKER_PASS }}
+        docker push 78160/realstate-docker:1.0.0
 
     - name: Connect to Kubernetes Cluster and deploy the application
       run: |
